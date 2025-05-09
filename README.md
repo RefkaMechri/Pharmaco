@@ -15,7 +15,7 @@ This project focuses on enhancing clinical decision-making through AI-powered pr
 ## 🛠 Technologies Used
 - **Languages:** Python, JavaScript (React for frontend)
 - **ML Libraries:** scikit-learn, XGBoost, LightGBM
-- **Database:** MySQL / SQLite
+- **Database:** MySQL 
 - **Frameworks:** Flask (for backend API), Electron (for desktop app)
 - **Tools:** Git, VS Code, Jupyter Notebooks
   ![](pharma.png)
