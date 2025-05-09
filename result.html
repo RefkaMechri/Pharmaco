@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Résultats de Prédiction</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="app-title">
+        <img src="pharmaco.png" alt="Logo PharmaLab" class="logo-image">
+        <span>SERVICE DE PHARMACOLOGIE CLINIQUE DE MONASTIR</span>
+      </div>
+      <div class="window-controls">
+        <button id="btn-retour" class="win-btn">&#x2190;</button>
+        <button id="btn-minimize" class="win-btn">−</button>
+        <button id="btn-maximize" class="win-btn">□</button>
+        <button id="btn-close" class="win-btn">×</button>
+      </div>
+    </header>
+    <!-- Main Content -->
+    <main class="main-content1">
+      <div class="result-card1">
+        <h2 class="section-title1">Recommandation</h2>
+    
+        <!-- <div class="result-details">
+          <div class="parameter">
+            <span class="param-name">C0/D2 Prédit :</span>
+            <span class="param-value" id="predicted-value1">--</span>
+          </div>
+        </div>-->    
+      <!--  <section class="dose-calculation">
+          <h3>Calcul des Doses Recommandées</h3>
+          <div class="form-group-row1">
+            <div class="form-group1">
+              <label for="min-target">C<sub>0</sub> Cible Minimale :</label>
+              <input type="number" id="min-target" value="5">
+            </div>
+            <div class="form-group1">
+              <label for="max-target">C<sub>0</sub> Cible Maximale :</label>
+              <input type="number" id="max-target" value="10">
+            </div>
+            <div class="form-group1">
+              <label for="mean-target">C<sub>0</sub> Cible Moyenne :</label>
+              <span id="mean-target">--</span></div>
+          </div>
+          <div class="form-group1">
+            <button id="calculate-dose" class="action-btn">Calculer</button>
+          </div>
+          <div class="calculation-results">
+           
+            <div class="result-row"><span>Dose Recommandée (min) :</span><span id="rec-dose-min">--</span></div>
+            <div class="result-row"><span>Dose Recommandée (max) :</span><span id="rec-dose-max">--</span></div>
+            <div class="result-row"><span>Dose Recommandée (Moyenne) :</span><span id="mean-target">--</span></div>
+          </div>
+        </section>-->
+
+        <section class="dose-calculation">
+          <h3>Calcul des Doses Recommandées</h3>
+          <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+          <span for="dl">Délai post-greffe prévu  :</span>
+          <input type="number" id="dl" placeholder="Entrez le délai" />
+           <button id="validate-dl" class="action-btn">Calculer</button>
+          <div class="result-row">
+            <span ><b>C<sub>0</sub>/D Prévu :</b></span>
+            <span  id="predicted-value1"> --</span>
+          </div>
+        </div>
+          <div class="three-column-layout">
+            <!-- Première colonne : Paramètres -->
+            <div class="column parameters-col">
+              <div class="form-group-row1">
+                <div class="form-group1">
+                  <span for="min-target" style="width: 160px;">C<sub>0</sub> Cible Minimale :</span>
+                  <input type="number" id="min-target" style="width: 130px;" >
+                </div>
+                <div class="form-group1">
+                  <span for="max-target" style="width: 160px;">C<sub>0</sub> Cible Maximale :</span>
+                  <input type="number" id="max-target" style="width: 130px;">
+                </div>
+                <div class="form-group1">
+                  <span for="mean-target">C<sub>0</sub> Cible Moyenne :</span>
+                  <span id="mean-target"> --</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Deuxième colonne : Bouton -->
+            <div class="column button-col">
+              <button id="calculate-dose" class="action-btn">Calculer</button>
+            </div>
+            
+            <!-- Troisième colonne : Résultats -->
+            <div class="column results-col">
+              <div class="calculation-results">
+                <div class="result-row">
+                  <span >Dose Recommandée (Minimale) :</span>
+                  <span id="rec-dose-min"> --</span>
+                </div>
+                <div class="result-row">
+                  <span>Dose Recommandée (Maximale) :</span>
+                  <span id="rec-dose-max"> --</span>
+                </div>
+                <div class="result-row">
+                  <span>Dose Recommandée (Moyenne) :</span>
+                  <span id="rec-dose-mean"> --</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+        <hr>
+    
+        <section class="dose-calculation">
+          <h3>Dose à prescrire</h3>
+          <div class="form-group-row2" style="gap: 35px;">
+            <label for="proposed-dose">Dose Unitaire Proposée (mg) :</label>
+            <input type="number" id="proposed-dose" step="0.01">
+            <button id="calculate-prediction" class="action-btn">Calculer</button>
+          </div>
+          <div class="prediction-result">
+            <div class="result-row">
+              <label>Concentration Attendue (C<sub>0</sub>) :</label>
+              <span id="future-prediction"> --</span>
+            </div>
+          </div>
+        </section>
+    
+        <hr>
+    
+       <!-- <section class="dose-calculation">
+          <h3>Sauvegarde</h3>
+          <div class="form-group-row1">
+            <label for="patient-id">ID du Patient :</label>
+            <input type="text" id="patient-id" placeholder="PT-0001" required>
+            <button id="btn-save-all" class="save-btn">💾 Sauvegarder</button>
+          </div>
+        </section> -->
+      </div>
+    </main>
+    
+  </div>
+  <footer class="app-footer">
+    <div class="footer-content">
+      <span> MEDICAL VISION</span>
+      <img src="logo.png" alt="Logo Medical" class="footer-logo">
+    </div>
+  </footer>
+  <script src="renderer.js"></script>
+</body>
+</html>

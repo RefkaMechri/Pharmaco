@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestion des Durées - PharmaLab</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Barre de titre améliorée -->
+    <div class="app-header">
+      <div class="app-title">
+        <img src="pharmaco.png" alt="Logo PharmaLab" class="logo-image">
+        <span>SERVICE DE PHARMACOLOGIE CLINIQUE DE MONASTIR</span>
+    </div>
+      <div class="window-controls">
+        <button id="btn-minimize" class="win-btn">−</button>
+        <button id="btn-maximize" class="win-btn">□</button>
+        <button id="btn-close" class="win-btn">×</button>
+      </div>
+    </div>
+
+    <!-- Contenu principal réorganisé -->
+    <div class="main-content">
+      <div class="back-button-container">
+       
+      </div>
+
+      <h1 class="main-title">
+        <span class="title-icon">⏱</span>
+        Délai Post Greffe
+      </h1>
+       
+      <div class="duration-options">
+        <button id="btn-moins" class="duration-btn moins-option">
+          <span class="option-text">Délai précoce (< 8 mois)</span>
+        </button>
+        <button id="btn-plus" class="duration-btn plus-option">
+          <span class="option-text">Délai retardé (> 8 mois)</span>
+        </button>
+
+    
+      </div>
+    </div>
+  </div>
+  <footer class="app-footer">
+    <div class="footer-content">
+      <span> MEDICAL VISION</span>
+      <img src="logo.png" alt="Logo Medical" class="footer-logo">
+    </div>
+  </footer>
+  <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{
+  "name": "pharmaco",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron": "^35.1.4",
+    "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "asar": "^3.2.0",
+    "python-shell": "^5.0.0"
+  },
+  "build": {
+    "appId": "com.pharmaco",
+    "productName": "MedicalVision",
+    "files": [
+      "main.js",
+      "renderer.js",
+      "index.html",
+      "style.css",
+      "predict_model.py",
+      "model.pkl",
+      "model_Sup.pkl",
+      "moins8.html",
+      "plus8.html",
+      "requirements.txt",
+      "result.html",
+      "logo.png","logo1.png","pharmaco.png",
+      "logo.ico"
+
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "logo.ico" 
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    },
+    "asarUnpack": ["**/*.py", "**/*.pkl"]
+
+  }
+}

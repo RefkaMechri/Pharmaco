@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Plus de 8 mois</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="app-container">
+
+    <div class="app-header">
+        <div class="app-title">
+          <img src="pharmaco.png" alt="Logo PharmaLab" class="logo-image">
+          <span>SERVICE DE PHARMACOLOGIE CLINIQUE DE MONASTIR</span>
+        </div>
+        <div class="window-controls">
+          <button id="btn-retour" class="win-btn">&#x2190;</button> <!-- Flèche gauche -->
+          <button id="btn-minimize" class="win-btn">−</button>
+          <button id="btn-maximize" class="win-btn">□</button>
+          <button id="btn-close" class="win-btn">×</button>
+
+        </div>
+      </div>
+      <div class="main-content" style="padding-top: 10px;">
+      <form class="prediction-form">
+        <h2 class="form-title">Paramètres du Patient</h2>
+        <p class="form-subtitle">Délai Retardé ⏱</p>
+
+        <div class="form-group">
+            <label for="age">Âge (années)</label>
+            <input type="number" id="age" class="form-input" placeholder="Entrez l'âge">
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="weight">Poids (kg)</label>
+            <input type="number" id="weight" class="form-input" placeholder="Entrez le poids">
+        </div>
+        <hr>
+        <div class="form-group">
+            <label>Sexe</label>
+            <div class="radio-group">
+                <label class="radio-option">
+                    <input type="radio" name="gender" value="1">
+                    <span class="radio-label">Homme</span>
+                </label>
+                <label class="radio-option">
+                    <input type="radio" name="gender" value="2">
+                    <span class="radio-label">Femme</span>
+                </label>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="delay">Délai actuel (jours)</label>
+            <input type="number" id="delay" class="form-input" placeholder="Entrez le délai actuel">
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="corticoids">Dose de corticoïdes(mg/24h)</label>
+            <input type="number" id="corticoids" class="form-input" placeholder="Entrez la dose de corticoïdes">
+        </div>
+        <hr>
+        <div class="form-group ">
+            <div id="grp" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <label for="c0" title="C₀= concentration résiduelle">
+                    C<sub>0</sub> :
+                </label> 
+                <input type="number" step="0.01" id="c0" class="form-input" placeholder="Entrez la concentration résiduelle">
+            
+                <label for="d1" title="D=dose absolue unitaire (mg)">
+                    Dose :
+                </label> 
+                <input type="number" step="0.01" id="d1" class="form-input" placeholder="Entrez la dose absolue unitaire">
+            
+                <label for="c0d1" title="C₀= concentration résiduelle,D=dose absolue unitaire (mg)">
+                    Ratio C<sub>0</sub>/D actuel :
+                </label>   
+                <span class="param-value" id="c0d1" style="padding-bottom: 15px;">--</span>
+            </div>
+        </div>
+        <hr>
+        
+        <div class="form-group">
+            <label for="mmf">Dose de MMF(mg/24h)</label>
+            <input type="number" id="mmf" class="form-input" placeholder="Entrez la dose de MMF">
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="predict-btn" style="height: 49px;">Prédire</button>
+            <div class="cadre" style="height: 47px;">
+                <span class="parameter" style="width: 180px;">
+                    <span class="param-name"> <b> C<sub>0</sub>/D Prédite : </b></span>
+                    <span class="param-value" id="predicted-value">--</span>
+                </span>
+            </div>
+            <button type="rec" class="rec-btn" style="height: 49px;">Recommandation</button>
+            <div id="loading-message" class="loading-message" style="display: none;">
+            </div>
+        </div>
+        
+        
+        <!-- Affichage du résultat -->
+        <div id="prediction-result" class="prediction-result">
+            <!-- Le résultat de la prédiction apparaîtra ici -->
+        </div>
+    </form>
+  </div>
+  </div>
+  <footer class="app-footer">
+    <div class="footer-content">
+      <span> MEDICAL VISION</span>
+      <img src="logo.png" alt="Logo Medical" class="footer-logo">
+    </div>
+  </footer>
+  <!-- Scripts -->
+  <script>
+    const c0Input = document.getElementById("c0");
+    const d1Input = document.getElementById("d1");
+    const ratioSpan = document.getElementById("c0d1");
+
+    function updateRatio() {
+        const c0 = parseFloat(c0Input.value);
+        const d1 = parseFloat(d1Input.value);
+
+        if (!isNaN(c0) && !isNaN(d1) && d1 !== 0) {
+            const ratio = c0 / d1;
+            ratioSpan.textContent = ratio.toFixed(1); // Limite à 2 décimales
+        } else {
+            ratioSpan.textContent = "--";
+        }
+    }
+
+    c0Input.addEventListener("input", updateRatio);
+    d1Input.addEventListener("input", updateRatio);
+</script>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
+
